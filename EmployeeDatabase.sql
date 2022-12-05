@@ -27,7 +27,7 @@ hiredate date,
 sal int,
 deptno int,
 primary key (empno),
-foreign key (deptno) references dept (deptno)
+foreign key (deptno) references dept (dno)
 on delete cascade on update cascade
 );
 
