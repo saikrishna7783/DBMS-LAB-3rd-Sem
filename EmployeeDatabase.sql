@@ -10,11 +10,12 @@ primary key (deptno)
 );
 
 insert into dept
-values(,'',''),
-values(,'',''),
-values(,'',''),
-values(,'',''),
-values(,'','');
+values(1,'Logistics','Bengaluru'),
+(2,'Statistics','Mysuru'),
+(3,'Marketing','Hyderabad'),
+(4,'Design','Bengaluru'),
+(5,'Management','Mysuru'),
+(6,'Finance','Bombay');
 
 select * from dept;
 
@@ -26,12 +27,12 @@ primary key (pno)
 );
 
 insert into project
-values(,'',''),
-values(,'',''),
-values(,'',''),
-values(,'',''),
-values(,'',''),
-values(,'','');
+values(01,'Hyderabad','Project_Zero'),
+(02,'Mysuru','Project_Alpha'),
+(03,'Hyderabad','Project_Bozo'),
+(04,'Bengaluru','Project_Waaris'),
+(05,'Bombay','Project_Onslaught'),
+(06,'Mysuru','Project_DivideBY');
 
 select * from project;
 
@@ -43,12 +44,11 @@ primary key (empno,incentive_date)
 );
 
 insert into incentives
-values(,'',),
-values(,'',),
-values(,'',),
-values(,'',),
-values(,'',),
-values(,'',);
+values(101,'2022-10-01',5000),
+(106,'2022-11-02',7000),
+(102,'2022-05-03',5000),
+(105,'2022-07-05',5000),
+(110,'2022-08-07',9000);
 
 select * from incentives;
 
@@ -65,12 +65,16 @@ on delete cascade on update cascade
 );
 
 insert into employee
-values(,'',,'',,),
-values(,'',,'',,),
-values(,'',,'',,),
-values(,'',,'',,),
-values(,'',,'',,),
-values(,'',,'',,);
+values(101,'Avinash',2310,'2021-10-09',56000,1),
+(102,'Dinesh',2317,'2021-03-07',96000,1),
+(103,'Balaji',2510,'2021-10-08',66000,1),
+(104,'Sovesh',9310,'2021-02-09',42000,2),
+(105,'Avinash',3310,'2021-03-04',76000,2),
+(106,'Hasbulla',5561,'2022-01-05',47900,3),
+(107,'Tacitus_Kilgore',7810,'2021-11-19',420000,4),
+(108,'Govardhan Prasad',4231,'2021-02-13',327100,5),
+(109,'Champika',1324,'2021-07-14',87600,5),
+(110,'Robin',6780,'2021-12-31',123000,5);
 
 select * from employee;
 
@@ -85,12 +89,13 @@ on delete cascade on update cacade
 );
 
 insert into assigned-to
-values(,,''),
-values(,,''),
-values(,,''),
-values(,,''),
-values(,,''),
-values(,,'');
+values(101,01,'Developer'),
+(103,04,'Tester'),
+(102,05,'Manager'),
+(105,03,'Supervisor'),
+(107,02,'Team Leader'),
+(106,06,'Executive Manager');
+
 
 select * from assigned-to;
 
