@@ -1,5 +1,6 @@
+show databases;
 create database if not exists 1bm21cs123_employee;
-use database 1bm21cs123_employee;
+use 1bm21cs123_employee;
 show tables;
 
 create table dept(
@@ -60,7 +61,7 @@ hiredate date,
 sal int,
 deptno int,
 primary key (empno),
-foreign key (deptno) references dept (dno)
+foreign key (deptno) references dept (deptno)
 on delete cascade on update cascade
 );
 
@@ -69,26 +70,26 @@ values(101,'Avinash',2310,'2021-10-09',56000,1),
 (102,'Dinesh',2317,'2021-03-07',96000,1),
 (103,'Balaji',2510,'2021-10-08',66000,1),
 (104,'Sovesh',9310,'2021-02-09',42000,2),
-(105,'Avinash',3310,'2021-03-04',76000,2),
+(105,'Sordelu',3310,'2021-03-04',76000,2),
 (106,'Hasbulla',5561,'2022-01-05',47900,3),
-(107,'Tacitus_Kilgore',7810,'2021-11-19',420000,4),
+(107,'Tacitus Kilgore',7810,'2021-11-19',420000,4),
 (108,'Govardhan Prasad',4231,'2021-02-13',327100,5),
 (109,'Champika',1324,'2021-07-14',87600,5),
 (110,'Robin',6780,'2021-12-31',123000,5);
 
 select * from employee;
 
-create table assigned-to(
+create table assigned_to(
 empno int,
 pno int,
 job_role varchar(20),
 primary key(empno,pno),
 foreign key(empno) references employee(empno),
 foreign key(pno) references project(pno)
-on delete cascade on update cacade
+on delete cascade on update cascade
 );
 
-insert into assigned-to
+insert into assigned_to
 values(101,01,'Developer'),
 (103,04,'Tester'),
 (102,05,'Manager'),
@@ -97,11 +98,11 @@ values(101,01,'Developer'),
 (106,06,'Executive Manager');
 
 
-select * from assigned-to;
+select * from assigned_to;
 
 #q3
 select a.empno
-from assigned-to a, project p
+from assigned_to a, project p
 where a.pno = p.pno and p.loc in ('Hyderabad','Mysuru','Bengaluru');
 
 #q4
@@ -112,5 +113,5 @@ from incentives);
 
 #q5
 select e.ename, e.empno, d.dname, a.job_role, d.dloc, p.ploc
-from dept d, employee e, assigned-to a, project p
+from dept d, employee e, assigned_to a, project p
 where e.empno = a.empno and a.pno = p.pno and e.deptno = d.deptno and d.dloc = p.ploc;
