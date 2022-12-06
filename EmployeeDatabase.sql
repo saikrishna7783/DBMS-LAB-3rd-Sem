@@ -41,8 +41,12 @@ create table incentives(
 empno int,
 incentive_date date,
 incentive_amount int,
-primary key (empno,incentive_date)
+primary key (empno,incentive_date),
+foreign key (empno) references employee(empno)
+on delete cascade on update cascade
 );
+
+drop table incentives;
 
 insert into incentives
 values(101,'2022-10-01',5000),
@@ -84,7 +88,8 @@ empno int,
 pno int,
 job_role varchar(20),
 primary key(empno,pno),
-foreign key(empno) references employee(empno),
+foreign key(empno) references employee(empno)
+on delete cascade on update cascade,
 foreign key(pno) references project(pno)
 on delete cascade on update cascade
 );
