@@ -1,9 +1,22 @@
+create database if not exists 1bm21cs123_employee;
+use database 1bm21cs123_employee;
+show tables;
+
 create table dept(
 deptno int,
 dname varchar(20),
 dloc varchar(10),
 primary key (deptno)
 );
+
+insert into dept
+values(,'',''),
+values(,'',''),
+values(,'',''),
+values(,'',''),
+values(,'','');
+
+select * from dept;
 
 create table project(
 pno int,
@@ -12,12 +25,32 @@ pname varchar(20),
 primary key (pno)
 );
 
+insert into project
+values(,'',''),
+values(,'',''),
+values(,'',''),
+values(,'',''),
+values(,'',''),
+values(,'','');
+
+select * from project;
+
 create table incentives(
 empno int,
 incentive_date date,
 incentive_amount int,
 primary key (empno,incentive_date)
 );
+
+insert into incentives
+values(,'',),
+values(,'',),
+values(,'',),
+values(,'',),
+values(,'',),
+values(,'',);
+
+select * from incentives;
 
 create table employee(
 empno int,
@@ -31,6 +64,16 @@ foreign key (deptno) references dept (dno)
 on delete cascade on update cascade
 );
 
+insert into employee
+values(,'',,'',,),
+values(,'',,'',,),
+values(,'',,'',,),
+values(,'',,'',,),
+values(,'',,'',,),
+values(,'',,'',,);
+
+select * from employee;
+
 create table assigned-to(
 empno int,
 pno int,
@@ -41,8 +84,15 @@ foreign key(pno) references project(pno)
 on delete cascade on update cacade
 );
 
-insert into employee
-values()
+insert into assigned-to
+values(,,''),
+values(,,''),
+values(,,''),
+values(,,''),
+values(,,''),
+values(,,'');
+
+select * from assigned-to;
 
 #q3
 select a.empno
