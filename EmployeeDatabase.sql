@@ -103,7 +103,7 @@ select * from assigned_to;
 #q3
 select a.empno
 from assigned_to a, project p
-where a.pno = p.pno and p.loc in ('Hyderabad','Mysuru','Bengaluru');
+where a.pno = p.pno and p.ploc in ('Hyderabad','Mysuru','Bengaluru');
 
 #q4
 select e.empno
