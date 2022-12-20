@@ -51,3 +51,8 @@ values(10001,20001,10),
 (10002,20002,20),
 (10003,20003,30),
 (10004,20003,40);
+
+#todo3
+select distinct p.pname
+from parts p,catalog c
+where sid is not null;
