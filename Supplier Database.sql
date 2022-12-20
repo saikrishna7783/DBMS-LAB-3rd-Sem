@@ -56,3 +56,11 @@ values(10001,20001,10),
 select distinct p.pname
 from parts p,catalog c
 where sid is not null;
+
+#todo7
+select s.sid
+from supplier s, catalog c
+where s.sid = c.sid and c.cost > (select avg(c1.cost)
+                                  from catalog c1
+                                  where c1.pid = c.pid
+                                  group by c1.pid);
