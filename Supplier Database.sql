@@ -57,6 +57,13 @@ select distinct p.pname
 from parts p,catalog c
 where sid is not null;
 
+#todo6
+select p.pname
+from parts p, catalog c
+where p.pid = c.pid and not exists(select *
+                                   from catalog c1
+                                   where c1.pid = c.pid and c1.sid != c.sid);
+
 #todo7
 select s.sid
 from supplier s, catalog c
