@@ -57,6 +57,11 @@ select distinct p.pname
 from parts p,catalog c
 where sid is not null;
 
+#todo4
+select distinct s.sname
+from supplier s, catalog c
+where s.sid = c.sid and (select distinct count(c1.pid) from catalog c1 where c1.sid = s.sid group by c1.sid) = (select distinct count(*) from parts);
+
 #todo6
 select p.pname
 from parts p, catalog c
