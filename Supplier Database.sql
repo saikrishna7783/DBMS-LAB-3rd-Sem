@@ -60,9 +60,7 @@ where sid is not null;
 #todo6
 select p.pname
 from parts p, catalog c
-where p.pid = c.pid and not exists(select *
-                                   from catalog c1
-                                   where c1.pid = c.pid and c1.sid != c.sid);
+where p.pid = c.pid and c.sid = (select sid from supplier where sname ="Acme Widget") and not exists(select * from catalog c1 where c1.pid = c.pid and c1.sid != c.sid);
 
 #todo7
 select s.sid
