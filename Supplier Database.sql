@@ -64,3 +64,11 @@ where s.sid = c.sid and c.cost > (select avg(c1.cost)
                                   from catalog c1
                                   where c1.pid = c.pid
                                   group by c1.pid);
+
+#todo8
+select s.sname, c.pid
+from supplier s, catalog c
+where s.sid = c.sid and c.cost = (select max(c1.cost)
+                                  from catalog c1
+                                  where c1.pid = c.pid
+                                  group by c1.pid);
