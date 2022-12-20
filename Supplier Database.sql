@@ -62,6 +62,11 @@ select distinct s.sname
 from supplier s, catalog c
 where s.sid = c.sid and (select distinct count(c1.pid) from catalog c1 where c1.sid = s.sid group by c1.sid) = (select distinct count(*) from parts);
 
+#todo5
+select s.sname
+from supplier s
+where (select count(*) from catalog c1, supplier s1, parts p1 where c1.pid = p1.pid and c1.sid = s1.sid and color = "Red" and c1.sid = s.sid group by color) = (select count(*) from parts where color="Red" group by color);
+
 #todo6
 select p.pname
 from parts p, catalog c
