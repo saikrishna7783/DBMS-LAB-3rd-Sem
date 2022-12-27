@@ -71,6 +71,14 @@ values(101,2),
 (104,3),
 (105,3);
 
+#actualsense
+#todo1
+select a.aname
+from aircraft a
+where not exists(select c.eid
+                 from certified c,employees e
+				         where c.aid=a.aid and c.eid=e.eid and e.salary < 80000);
+#
 #todo1
 select a.aname
 from aircraft a,employees e,certified c
