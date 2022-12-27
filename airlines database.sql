@@ -70,3 +70,22 @@ values(101,2),
 (104,1),
 (104,3),
 (105,3);
+
+#todo3
+select ename
+from employees
+where salary < (select min(price)
+                from flights
+                where _from = "Bengaluru" and to_ = "Frankfurt"
+                group by _from, to_);
+
+#todo4
+select a.aid,a.aname,avg(e.salary)
+from aircraft a,employees e,certified c
+where a.aid=c.aid and c.eid=e.eid and a.cruising_range>1000
+group by a.aid;
+
+#todo5
+select distinct  e.ename
+from aircraft a,employees e,certified c
+where a.aid=c.aid and c.eid=e.eid and a.aname="Boeing";
