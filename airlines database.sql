@@ -71,6 +71,11 @@ values(101,2),
 (104,3),
 (105,3);
 
+#todo1
+select a.aname
+from aircraft a,employees e,certified c
+where a.aid=c.aid and c.eid=e.eid and e.salary>80000;
+
 #todo3
 select ename
 from employees
@@ -89,3 +94,10 @@ group by a.aid;
 select distinct  e.ename
 from aircraft a,employees e,certified c
 where a.aid=c.aid and c.eid=e.eid and a.aname="Boeing";
+
+#todo6
+select aid
+from aircraft
+where cruising_range >= (select distance
+                         from flights
+                         where _from = "Bengaluru" and to_ = "New Delhi");
