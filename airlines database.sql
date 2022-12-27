@@ -76,6 +76,13 @@ select a.aname
 from aircraft a,employees e,certified c
 where a.aid=c.aid and c.eid=e.eid and e.salary>80000;
 
+#todo2
+select c.eid, max(a.cruising_range)
+from aircraft a,certified c
+where a.aid = c.aid
+group by c.eid
+having count(c.aid) >= 3;
+
 #todo3
 select ename
 from employees
